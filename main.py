@@ -12,6 +12,8 @@ OUTPUT_PATH = os.environ.get("OUTPUT_PATH", "/output/entry.txt")
 
 
 def main() -> None:
+    if not 1 <= len(JOKE) <= 200:
+        raise ValueError(f"joke must be 1-200 characters, got {len(JOKE)}")
     directory = os.path.dirname(OUTPUT_PATH)
     if directory:
         os.makedirs(directory, exist_ok=True)
